@@ -87,7 +87,13 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        spawnManager.SpawnTriggerEntered();
+
+        if (other.transform.root.gameObject.CompareTag("Platform"))
+        {
+            spawnManager.SpawnTriggerEntered();
+            Debug.Log("platform spawned!");
+        }
+
 
     }
 }

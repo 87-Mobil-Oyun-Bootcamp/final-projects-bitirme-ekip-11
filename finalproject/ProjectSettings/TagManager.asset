@@ -6,6 +6,7 @@ TagManager:
   tags:
   - SpawnTrigger
   - Star
+  - Platform
   layers:
   - Default
   - TransparentFX
