@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class StableBehavior : EnemyBehavior
 {
+    
     GameObject obj;
 
     public StableBehavior(GameObject obj)
@@ -12,6 +13,8 @@ public class StableBehavior : EnemyBehavior
     }
     public void Behave()
     {
+
         obj.transform.Rotate(0, 0, 50 * Time.deltaTime);
+
     }
 }

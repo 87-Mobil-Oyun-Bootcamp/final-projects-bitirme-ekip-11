@@ -5,7 +5,7 @@ using System.Linq;
 public class PlatformSpawner : MonoBehaviour
 {
     public List<GameObject> platforms;
-    private float offset = 25f;
+    private float offset = 40f;
     void Start()
     {
         if(platforms != null && platforms.Count>0)

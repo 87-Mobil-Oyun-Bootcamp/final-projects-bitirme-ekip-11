@@ -8,12 +8,17 @@ public class ShootingEnemy : Enemy
     [SerializeField]
     GameObject enemyObject;
 
+    [SerializeField]
+    GameObject edgePoint;
+
     Player player;
     GameObject playerObj;
 
+    
+
     void Awake()
     {
-        behavior = new DynamicBehavior(enemyObject);
+        behavior = new DynamicBehavior(enemyObject, edgePoint);
         playerObj = GameObject.Find("Player");
         player = playerObj.GetComponent<Player>();
     }
@@ -35,7 +40,7 @@ public class ShootingEnemy : Enemy
         if (comp)
         {
             Damage();
-            Object.Destroy(enemyObject);
+            //Object.Destroy(enemyObject);
         }
       
     }
