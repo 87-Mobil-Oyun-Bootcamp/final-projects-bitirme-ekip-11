@@ -2,17 +2,41 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Astroits : MonoBehaviour
+public class Astroits : Enemy
 {
-    // Start is called before the first frame update
-    void Start()
+
+    [SerializeField]
+    GameObject enemyObject;
+
+    Player player;
+    GameObject playerObj;
+
+    void Awake()
     {
-        
+        behavior = new StableBehavior(enemyObject);
+        playerObj = GameObject.Find("Player");
+        player = playerObj.GetComponent<Player>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        behavior.Behave();
+    }
+
+    public override void Damage()
+    {
+        player.SetDamage();
+        Debug.Log("I got the damage");
+    }
+
+    private void OnTriggerEnter(Collider other) // rigitbody ile çarpıştığında
+    {
+        Player comp = other.GetComponent<Player>();
+        if (comp)
+        {
+            Damage();
+            Object.Destroy(enemyObject);
+        }
+
     }
 }
