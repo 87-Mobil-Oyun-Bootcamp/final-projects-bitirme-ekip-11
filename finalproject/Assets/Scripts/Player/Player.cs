@@ -7,11 +7,15 @@ public class Player : MonoBehaviour
     private static int energy;
     private static int starScore;
 
+    [SerializeField]
+    GameObject player;
+
     // Start is called before the first frame update
     void Awake()
     {
         energy = 3;
         starScore = 0;
+        player.GetComponent<Renderer>().enabled = false;
     }
 
     public void SetDamage()
