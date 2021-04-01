@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    private int energy;
-    private int starScore;
+    private static int energy;
+    private static int starScore;
 
     // Start is called before the first frame update
     void Awake()
@@ -22,5 +22,14 @@ public class Player : MonoBehaviour
     public void IncreaseStarScore()
     {
         starScore += 1;
+    }
+
+    public int getStarScore()
+    {
+        return starScore;
+    }
+    public int getEnergy()
+    {
+        return energy;
     }
 }

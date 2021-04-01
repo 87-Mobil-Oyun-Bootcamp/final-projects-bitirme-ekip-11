@@ -4,18 +4,33 @@ using UnityEngine;
 
 public class Star : MonoBehaviour
 {
-    
-    
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField]
+    GameObject starObject;
+
+    Player player;
+    GameObject playerObj;
+
+    void Awake()
     {
-        
+        playerObj = GameObject.Find("Player");
+        player = playerObj.GetComponent<Player>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         transform.Rotate(0, 0, 50 * Time.deltaTime);
     }
-  
+
+    private void OnTriggerEnter(Collider other) 
+    {
+        Player comp = other.GetComponent<Player>();
+        if (comp)
+        {
+            player.IncreaseStarScore();
+            Object.Destroy(starObject);
+            Debug.Log("your star score: " + player.getStarScore());
+        }
+
+    }
+
 }

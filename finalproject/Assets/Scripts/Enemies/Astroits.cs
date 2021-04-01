@@ -29,14 +29,15 @@ public class Astroits : Enemy
         Debug.Log("I got the damage");
     }
 
-    private void OnTriggerEnter(Collider other) // rigitbody ile çarpıştığında
+    
+    private void OnCollisionEnter(Collision collision)
     {
-        Player comp = other.GetComponent<Player>();
-        if (comp)
-        {
-            Damage();
-            Object.Destroy(enemyObject);
-        }
 
+        if (collision.gameObject.name == "PlayerBody")
+        {
+            Debug.Log("COLLISION");
+            Damage();
+            Debug.Log("your energy: " + player.getEnergy());
+        }
     }
 }
