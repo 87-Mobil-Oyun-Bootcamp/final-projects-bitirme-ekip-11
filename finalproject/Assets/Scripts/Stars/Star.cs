@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class Star : MonoBehaviour
 {
-    [SerializeField]
-    GameObject starObject;
+    
+    //[SerializeField]
+    //GameObject starObject;
+
+    public Transform boomObj;
 
     Player player;
     GameObject playerObj;
@@ -26,8 +29,10 @@ public class Star : MonoBehaviour
         Player comp = other.GetComponent<Player>();
         if (comp)
         {
+            Instantiate(boomObj, transform.position, boomObj.rotation);
             player.IncreaseStarScore();
-            Object.Destroy(starObject);
+            //Object.Destroy(starObject);
+            Destroy(gameObject);
             Debug.Log("your star score: " + player.getStarScore());
         }
 
