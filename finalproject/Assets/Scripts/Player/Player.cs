@@ -6,6 +6,7 @@ public class Player : MonoBehaviour
 {
     private static int energy;
     private static int starScore;
+    public static event System.Action StarCollected;
 
     [SerializeField]
     GameObject player;
@@ -26,6 +27,7 @@ public class Player : MonoBehaviour
     public void IncreaseStarScore()
     {
         starScore += 1;
+        StarCollected?.Invoke();
     }
 
     public int getStarScore()
