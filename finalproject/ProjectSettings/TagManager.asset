@@ -7,6 +7,8 @@ TagManager:
   - SpawnTrigger
   - Star
   - Platform
+  - FxTemporaire
+  - Target
   layers:
   - Default
   - TransparentFX
