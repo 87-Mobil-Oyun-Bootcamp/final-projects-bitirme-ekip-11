@@ -14,10 +14,11 @@ public class Move : MonoBehaviour
     private float moveValueX;
     private float moveValueY;
     public SpawnManager spawnManager;
+    public float  speed=10f;
 
     void Update()
     {
-        transform.Translate(transform.forward * 10 * Time.deltaTime, Space.World);
+        transform.Translate(transform.forward * speed * Time.deltaTime, Space.World);
 
         if (Input.GetMouseButtonDown(0))
         {
