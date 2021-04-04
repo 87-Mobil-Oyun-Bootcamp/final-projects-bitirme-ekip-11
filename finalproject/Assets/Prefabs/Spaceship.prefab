@@ -243,8 +243,6 @@ GameObject:
   - component: {fileID: 7475856254482510381}
   - component: {fileID: 2383692485586965304}
   - component: {fileID: 8105923004052490249}
-  - component: {fileID: 8105923004052490253}
-  - component: {fileID: 919132148258328948}
   m_Layer: 0
   m_Name: Spaceship
   m_TagString: Untagged
@@ -353,37 +351,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyObject: {fileID: 0}
   edgePoint: {fileID: 8105923004286984279}
---- !u!114 &8105923004052490253
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8989026353397388280}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b564b781182edc0468d68890802a7d31, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  range: 5
-  fireRate: 2
-  enemyTag: Target
-  bulletPrefab: {fileID: 7800377941429118796, guid: b61644e086e00034ca635d4fe282965a,
-    type: 3}
-  firePoint: {fileID: 8105923003425394366}
---- !u!114 &919132148258328948
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8989026353397388280}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 228de378be5325846bf5ed0fb6c875fd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  firePoint: {fileID: 8105923003425394366}
-  projectilePrefab: {fileID: 8620037155825767831, guid: b61644e086e00034ca635d4fe282965a,
-    type: 3}
-  launchForce: 700
