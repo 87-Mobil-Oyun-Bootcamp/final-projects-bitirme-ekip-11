@@ -6,14 +6,14 @@ public class CameraController : MonoBehaviour
 {
     public Transform target;
     private Vector3 offset;
-    public float smoothSpeed = 0.2f;
+    public float smoothSpeed = 0.5f;
 
-    void Start()
+    void Awake()
     {
         offset = transform.position - target.position;
     }
 
-    void Update()
+    void LateUpdate()
     {
         Vector3 newPosition = new Vector3(transform.position.x, transform.position.y, offset.z + target.position.z);
         transform.position = Vector3.Lerp(transform.position, newPosition, smoothSpeed);

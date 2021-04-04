@@ -36,7 +36,7 @@ public class Move : MonoBehaviour
             distanceY = lastY - startY;
             moveValueY = (distanceY / Screen.height) * 50;
 
-            transform.position = new Vector3(Mathf.Clamp(transform.position.x + moveValueX, -5, 5), Mathf.Clamp(transform.position.y + moveValueY, -5, 6), transform.position.z);
+            transform.position = new Vector3(Mathf.Clamp(transform.position.x + moveValueX, -5, 5), Mathf.Clamp(transform.position.y + moveValueY, 1,8.5f), transform.position.z);
 
             startX = lastX;
             startY = lastY;
