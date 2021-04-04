@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Star : MonoBehaviour
+public class Bullet : MonoBehaviour
 {
-    
     public Transform boomObj;
 
     Player player;
@@ -16,23 +15,16 @@ public class Star : MonoBehaviour
         player = playerObj.GetComponent<Player>();
     }
 
-    void Update()
-    {
-        transform.Rotate(0, 0, 50 * Time.deltaTime);
-    }
-
-    private void OnTriggerEnter(Collider other) 
+    private void OnTriggerEnter(Collider other)
     {
         Player comp = other.GetComponent<Player>();
         if (comp)
         {
             Instantiate(boomObj, transform.position, boomObj.rotation);
-            player.IncreaseStarScore();
-            //Object.Destroy(starObject);
+            //player.IncreaseStarScore();
             Destroy(gameObject);
-            Debug.Log("your star score: " + player.getStarScore());
+            Debug.Log("BULLET !");
         }
 
     }
-
 }
