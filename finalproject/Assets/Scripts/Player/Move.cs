@@ -46,7 +46,8 @@ public class Move : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
 
-        if (other.transform.root.gameObject.CompareTag("Platform"))
+        //if (other.transform.root.gameObject.CompareTag("Platform") )
+        if (other.transform.gameObject.CompareTag("SpawnTrigger"))
         {
             spawnManager.SpawnTriggerEntered();
             Debug.Log("platform spawned!");

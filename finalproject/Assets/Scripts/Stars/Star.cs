@@ -6,12 +6,15 @@ public class Star : MonoBehaviour
 {
     
     public Transform boomObj;
+    //public GameObject star;
+    private bool isCollected = false;
 
     Player player;
     GameObject playerObj;
 
     void Awake()
     {
+        gameObject.GetComponent<Renderer>().enabled = true;
         playerObj = GameObject.Find("Player");
         player = playerObj.GetComponent<Player>();
     }
@@ -28,10 +31,12 @@ public class Star : MonoBehaviour
         {
             Instantiate(boomObj, transform.position, boomObj.rotation);
             player.IncreaseStarScore();
-            //Object.Destroy(starObject);
-            Destroy(gameObject);
+            //Destroy(gameObject);
+            gameObject.GetComponent<Renderer>().enabled = false;
             Debug.Log("your star score: " + player.getStarScore());
         }
+
+
 
     }
 
