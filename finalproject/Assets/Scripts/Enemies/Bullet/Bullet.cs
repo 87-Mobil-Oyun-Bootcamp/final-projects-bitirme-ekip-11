@@ -15,6 +15,12 @@ public class Bullet : MonoBehaviour
         player = playerObj.GetComponent<Player>();
     }
 
+    public void Damage()
+    {
+        player.SetDamage();
+        Debug.Log("I got the damage");
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         Player comp = other.GetComponent<Player>();
@@ -24,6 +30,8 @@ public class Bullet : MonoBehaviour
             //player.IncreaseStarScore();
             Destroy(gameObject);
             Debug.Log("BULLET !");
+            Damage();
+            Debug.Log("your energy: " + player.getEnergy());
         }
 
     }

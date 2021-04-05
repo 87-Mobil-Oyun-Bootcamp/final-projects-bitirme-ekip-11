@@ -7,11 +7,11 @@ public class Player : MonoBehaviour
     private static int energy;
     private static int starScore;
     public static event System.Action StarCollected;
+    public static event System.Action GameOver;
 
     [SerializeField]
     GameObject player;
 
-    // Start is called before the first frame update
     void Awake()
     {
         energy = 3;
@@ -21,7 +21,21 @@ public class Player : MonoBehaviour
 
     public void SetDamage()
     {
-        energy -= 1;
+        
+        if(energy == 0)
+        {
+            GameOver?.Invoke();
+        }
+        else
+        {
+            energy -= 1;
+        }
+        
+    }
+
+    public void SetEnergy()
+    {
+        energy += 1;
     }
 
     public void IncreaseStarScore()
@@ -38,4 +52,5 @@ public class Player : MonoBehaviour
     {
         return energy;
     }
+
 }
