@@ -5,6 +5,8 @@ using UnityEngine;
 public class Astroits : Enemy
 {
 
+    public Transform boomObj;
+
     [SerializeField]
     GameObject enemyObject;
 
@@ -26,7 +28,6 @@ public class Astroits : Enemy
     public override void Damage()
     {
         player.SetDamage();
-        Debug.Log("I got the damage");
     }
 
     
@@ -35,6 +36,7 @@ public class Astroits : Enemy
 
         if (collision.gameObject.name == "PlayerBody")
         {
+            Instantiate(boomObj, transform.position, boomObj.rotation);
             Debug.Log("COLLISION");
             Damage();
             Debug.Log("your energy: " + player.getEnergy());

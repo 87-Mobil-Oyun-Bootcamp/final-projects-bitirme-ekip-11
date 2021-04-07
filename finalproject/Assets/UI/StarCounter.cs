@@ -9,7 +9,25 @@ public class StarCounter : MonoBehaviour
     [SerializeField]
     TextMeshProUGUI starScore;
 
-    Player player;
+    UIPanelController panelController;
+    GameObject panelObj;
+    private int score = 0;
+
+    void Awake()
+    {
+        UIPanelController.GetStarScore += ShowScore;
+        panelObj = GameObject.Find("UIPanel");
+        panelController = panelObj.GetComponent<UIPanelController>();
+    }
+
+
+    void ShowScore()
+    {
+        score = panelController.getStarScore();
+        starScore.SetText(score.ToString());
+    }
+
+    /*Player player;
     GameObject playerObj;
     private int score;
 
@@ -24,6 +42,11 @@ public class StarCounter : MonoBehaviour
     void OnStarCollected()
     {
         score = player.getStarScore();
+        Debug.Log("star counter : ");
+        Debug.Log(score.ToString());
         starScore.SetText(score.ToString());
     }
+    
+    */
+
 }

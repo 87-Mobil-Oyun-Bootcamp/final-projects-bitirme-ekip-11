@@ -18,7 +18,6 @@ public class Bullet : MonoBehaviour
     public void Damage()
     {
         player.SetDamage();
-        Debug.Log("I got the damage");
     }
 
     private void OnTriggerEnter(Collider other)
@@ -27,7 +26,6 @@ public class Bullet : MonoBehaviour
         if (comp)
         {
             Instantiate(boomObj, transform.position, boomObj.rotation);
-            //player.IncreaseStarScore();
             Destroy(gameObject);
             Debug.Log("BULLET !");
             Damage();

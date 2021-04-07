@@ -19,6 +19,8 @@ public class GameManager : MonoBehaviour
     Player player;
     GameObject playerObj;
 
+    public static event System.Action showTotalScore;
+
     private void Awake()
     {
         Time.timeScale = 0;
@@ -26,6 +28,7 @@ public class GameManager : MonoBehaviour
         player = playerObj.GetComponent<Player>();
 
         Player.GameOver += PauseTheGame;
+        Player.GameOver += ShowScore;
 
         uiManager.ClickedToStart += StartTheGame;
         uiManager.ClickedToResume += ResumeTheGame;
@@ -42,6 +45,11 @@ public class GameManager : MonoBehaviour
     void PauseTheGame()
     {
         finishState.Enter();
+    }
+
+    void ShowScore()
+    {
+        showTotalScore?.Invoke();
     }
     void ResumeTheGame()
     {

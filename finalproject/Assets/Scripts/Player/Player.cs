@@ -6,6 +6,7 @@ public class Player : MonoBehaviour
 {
     private static int energy;
     private static int starScore;
+    public static event System.Action EnergyDecreased;
     public static event System.Action StarCollected;
     public static event System.Action GameOver;
 
@@ -25,10 +26,12 @@ public class Player : MonoBehaviour
         if(energy == 0)
         {
             GameOver?.Invoke();
+            Debug.Log("--energy is ZERO");
         }
         else
         {
             energy -= 1;
+            EnergyDecreased?.Invoke();
         }
         
     }
@@ -41,6 +44,8 @@ public class Player : MonoBehaviour
     public void IncreaseStarScore()
     {
         starScore += 1;
+        Debug.Log("player - IncreaseStarScore() : ");
+        Debug.Log(starScore.ToString());
         StarCollected?.Invoke();
     }
 

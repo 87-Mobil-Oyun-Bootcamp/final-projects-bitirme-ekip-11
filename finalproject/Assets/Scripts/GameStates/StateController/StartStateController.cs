@@ -19,17 +19,7 @@ public class StartStateController : MonoBehaviour
 
     void StartButtonClicked()
     {
-        Debug.Log("Start Button Pressed!");
         OnClickedStartButton?.Invoke();
     }
 
-    /*public System.Action OnSwipedToStart;
-
-    void Update()
-    {
-        if (Input.GetMouseButtonDown(0))
-        {
-            OnSwipedToStart?.Invoke();
-        }
-    }*/
 }

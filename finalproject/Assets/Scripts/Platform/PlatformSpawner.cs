@@ -14,7 +14,6 @@ public class PlatformSpawner : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
     public void MovePlatform()
     {
         GameObject movedPlatform = platforms[0];
