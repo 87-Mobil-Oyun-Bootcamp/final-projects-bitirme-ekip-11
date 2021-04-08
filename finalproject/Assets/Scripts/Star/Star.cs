@@ -27,7 +27,6 @@ public class Star : MonoBehaviour
         Player comp = other.GetComponent<Player>();
         if (comp)
         {
-            Debug.Log("STAR");
             Instantiate(boomObj, transform.position, boomObj.rotation);
             
         }
@@ -39,8 +38,6 @@ public class Star : MonoBehaviour
         if (comp)
         {
             player.IncreaseStarScore();
-            Debug.Log("star on trigger exit: ");
-            Debug.Log(player.getStarScore().ToString());
             gameObject.GetComponent<Renderer>().enabled = false;
         }
     }

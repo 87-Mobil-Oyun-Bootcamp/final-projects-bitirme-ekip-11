@@ -44,8 +44,7 @@ public class Player : MonoBehaviour
     public void IncreaseStarScore()
     {
         starScore += 1;
-        Debug.Log("player - IncreaseStarScore() : ");
-        Debug.Log(starScore.ToString());
+
         StarCollected?.Invoke();
     }
 
