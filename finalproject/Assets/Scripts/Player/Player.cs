@@ -23,7 +23,7 @@ public class Player : MonoBehaviour
     public void SetDamage()
     {
         
-        if(energy == 0)
+        if(energy <2 )
         {
             GameOver?.Invoke();
             Debug.Log("--energy is ZERO");
@@ -38,7 +38,7 @@ public class Player : MonoBehaviour
 
     public void SetEnergy()
     {
-        energy += 1;
+        energy = 0;
     }
 
     public void IncreaseStarScore()
