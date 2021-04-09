@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Star : MonoBehaviour
 {
-    
+    public bool Hide = false;
     public Transform boomObj;
-  
+    bool isAble;
     Player player;
     GameObject playerObj;
 
@@ -38,8 +38,21 @@ public class Star : MonoBehaviour
         if (comp)
         {
             player.IncreaseStarScore();
-            gameObject.GetComponent<Renderer>().enabled = false;
+            //gameObject.GetComponent<Renderer>().enabled = false;
+            isAble = gameObject.GetComponent<Renderer>().enabled;
+            if (isAble)
+            {
+                gameObject.GetComponent<Renderer>().enabled = false;
+                StartCoroutine("WaitUnhide");
+            }
         }
+    }
+
+
+    IEnumerator WaitUnhide()
+    {
+        yield return (new WaitForSeconds(2));
+        gameObject.GetComponent<Renderer>().enabled = true;
     }
 
 }
