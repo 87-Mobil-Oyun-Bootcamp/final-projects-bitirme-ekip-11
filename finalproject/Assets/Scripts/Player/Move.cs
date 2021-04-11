@@ -17,35 +17,42 @@ public class Move : MonoBehaviour
 
     void Update()
     {
-        transform.Translate(transform.forward * 10 * Time.deltaTime, Space.World);
+        PlayerMove();
+    }
 
-        if (Input.GetMouseButtonDown(0))
+    private void PlayerMove()
+    {
+        if (Time.timeScale == 1)
         {
-            startX = Input.mousePosition.x;
-            startY = Input.mousePosition.y;
+            transform.Translate(transform.forward * 10 * Time.deltaTime, Space.World);
 
-        }
-        else if (Input.GetMouseButton(0))
-        {
-            lastX = Input.mousePosition.x;
-            distanceX = lastX - startX;
-            moveValueX = (distanceX / Screen.width) * 50;
+            if (Input.GetMouseButtonDown(0))
+            {
+                startX = Input.mousePosition.x;
+                startY = Input.mousePosition.y;
 
-            lastY = Input.mousePosition.y;
-            distanceY = lastY - startY;
-            moveValueY = (distanceY / Screen.height) * 50;
+            }
+            else if (Input.GetMouseButton(0))
+            {
+                lastX = Input.mousePosition.x;
+                distanceX = lastX - startX;
+                moveValueX = (distanceX / Screen.width) * 50;
 
-            transform.position = new Vector3(Mathf.Clamp(transform.position.x + moveValueX, -5, 5), Mathf.Clamp(transform.position.y + moveValueY, 1,8.5f), transform.position.z);
+                lastY = Input.mousePosition.y;
+                distanceY = lastY - startY;
+                moveValueY = (distanceY / Screen.height) * 50;
 
-            startX = lastX;
-            startY = lastY;
+                transform.position = new Vector3(Mathf.Clamp(transform.position.x + moveValueX, -5, 5), Mathf.Clamp(transform.position.y + moveValueY, 1, 8.5f), transform.position.z);
+
+                startX = lastX;
+                startY = lastY;
+            }
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
 
-        //if (other.transform.root.gameObject.CompareTag("Platform") )
         if (other.transform.gameObject.CompareTag("SpawnTrigger"))
         {
             spawnManager.SpawnTriggerEntered();

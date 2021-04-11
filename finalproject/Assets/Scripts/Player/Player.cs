@@ -26,7 +26,7 @@ public class Player : MonoBehaviour
         if(energy <2 )
         {
             GameOver?.Invoke();
-            Debug.Log("--energy is ZERO");
+            Debug.Log("-- No energy");
         }
         else
         {
@@ -38,7 +38,8 @@ public class Player : MonoBehaviour
 
     public void SetEnergy()
     {
-        energy = 0;
+        energy = 1;
+        Debug.Log("resume energy:"+energy);
     }
 
     public void IncreaseStarScore()

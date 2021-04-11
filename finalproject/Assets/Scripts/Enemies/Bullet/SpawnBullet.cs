@@ -9,6 +9,7 @@ public class SpawnBullet : MonoBehaviour
 
     [SerializeField]
     private Rigidbody prefab;
+    private Rigidbody bullet;
 
     private float force = 500f;
 
@@ -19,8 +20,9 @@ public class SpawnBullet : MonoBehaviour
 
     void Spawn()
     {
-        var bullet = Instantiate(prefab, firePoint.position, firePoint.rotation);
+        bullet = Instantiate(prefab, firePoint.position, firePoint.rotation);
         bullet.AddForce(firePoint.forward * force);
         bullet.velocity = transform.TransformDirection(0, 0, 40);
     }
+
 }

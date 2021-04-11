@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -34,12 +35,24 @@ public class GameManager : MonoBehaviour
         uiManager.ClickedToResume += ResumeTheGame;
         uiManager.ClickedToReplay += ReplayTheGame;
         uiManager.ClickedToQuit += QuitFromGame;
-        startState.Enter();
+
+        if (PlayerPrefs.GetInt("isReplayed") == 0)
+        {
+            startState.Enter();
+            Debug.Log("NEW GAME!" );
+        }
+        else
+        {
+            Time.timeScale = 1;
+        }
+        
+
     }
 
     void StartTheGame()
     {
         startState.Exit();
+        
     }
 
     void PauseTheGame()
@@ -61,13 +74,16 @@ public class GameManager : MonoBehaviour
     }
      void ReplayTheGame()
     {
-        // do sth
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        Time.timeScale = 1;
         Debug.Log("CLICKED REPLY!");
+        PlayerPrefs.SetInt("isReplayed", 1);
     }
 
     void QuitFromGame()
     {
-        // do sth
+        Application.Quit();
+        PlayerPrefs.SetInt("isReplayed", 0);
     }
     
 

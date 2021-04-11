@@ -25,10 +25,15 @@ public class EnergyBar : MonoBehaviour
 
     void ShowEnergy()
     {
+        
         energy = panelController.getPlayerEnergy();
         Debug.Log("energy "+energy.ToString());
         slider.value = energy;
-        fill.color = gradient.Evaluate(slider.normalizedValue);
+        if(fill != null)
+        {
+            fill.color = gradient.Evaluate(slider.normalizedValue);
+        }
+        
     }
 
     

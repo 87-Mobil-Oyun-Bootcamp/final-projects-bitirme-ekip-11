@@ -38,8 +38,15 @@ public class Astroits : Enemy
         {
             Instantiate(boomObj, transform.position, boomObj.rotation);
             Debug.Log("COLLISION");
-            Damage();
+            StartCoroutine("WaitForParticle");
+            //Damage();
             Debug.Log("your energy: " + player.getEnergy());
         }
+    }
+
+    IEnumerator WaitForParticle()
+    {
+        yield return (new WaitForSeconds(0.3f));
+        Damage();
     }
 }

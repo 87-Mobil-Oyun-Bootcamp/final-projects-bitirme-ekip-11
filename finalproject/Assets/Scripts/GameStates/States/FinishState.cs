@@ -12,7 +12,11 @@ public class FinishState : MonoBehaviour, IState
     public void Enter()
     {
         Time.timeScale = 0;
-        finishPanel.SetActive(true);
+        if(finishPanel != null)
+        {
+            finishPanel.SetActive(true);
+        }
+        
         Debug.Log("Finish State!");
     }
 
