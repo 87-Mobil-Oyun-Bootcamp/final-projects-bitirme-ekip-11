@@ -5,11 +5,11 @@ using UnityEngine;
 
 public class DynamicBehavior : EnemyBehavior
 {
-    GameObject obj;
-
     public float min = 2f;
     public float max = 3f;
     private float num;
+    GameObject obj;
+
     public DynamicBehavior(GameObject obj)
     {
         this.obj = obj;
@@ -17,6 +17,7 @@ public class DynamicBehavior : EnemyBehavior
         max = obj.transform.position.y + 3;
         num = UnityEngine.Random.Range(0, 4f);
     }
+
     public void Behave()
     {
         obj.transform.position = new Vector3(obj.transform.position.x, Mathf.PingPong(Time.time * num, max - min) + min, obj.transform.position.z);

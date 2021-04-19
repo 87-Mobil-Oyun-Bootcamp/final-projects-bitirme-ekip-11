@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class Star : MonoBehaviour
 {
-    public bool Hide = false;
-    public Transform boomObj;
-    bool isAble;
-    Player player;
     GameObject playerObj;
-
+    Player player;
+    
+    public Transform boomObj;
+    public bool Hide = false;
+    
+    private bool isAble;
+    
     void Awake()
     {
         gameObject.GetComponent<Renderer>().enabled = true;
@@ -25,34 +27,33 @@ public class Star : MonoBehaviour
     private void OnTriggerEnter(Collider other) 
     {
         Player comp = other.GetComponent<Player>();
+
         if (comp)
         {
             Instantiate(boomObj, transform.position, boomObj.rotation);
-            
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
         Player comp = other.GetComponent<Player>();
+
         if (comp)
         {
             player.IncreaseStarScore();
-            //gameObject.GetComponent<Renderer>().enabled = false;
             isAble = gameObject.GetComponent<Renderer>().enabled;
+
             if (isAble)
             {
                 gameObject.GetComponent<Renderer>().enabled = false;
-                StartCoroutine("WaitUnhide");
+                StartCoroutine("WaitToUnhide");
             }
         }
     }
 
-
-    IEnumerator WaitUnhide()
+    IEnumerator WaitToUnhide()
     {
         yield return (new WaitForSeconds(2));
         gameObject.GetComponent<Renderer>().enabled = true;
     }
-
 }

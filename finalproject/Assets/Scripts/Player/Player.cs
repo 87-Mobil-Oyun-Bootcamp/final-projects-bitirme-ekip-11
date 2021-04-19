@@ -4,14 +4,15 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    [SerializeField]
+    GameObject player;
+
     private static int energy;
     private static int starScore;
+
     public static event System.Action EnergyDecreased;
     public static event System.Action StarCollected;
     public static event System.Action GameOver;
-
-    [SerializeField]
-    GameObject player;
 
     void Awake()
     {
@@ -22,30 +23,26 @@ public class Player : MonoBehaviour
 
     public void SetDamage()
     {
-        
         if(energy <2 )
         {
             GameOver?.Invoke();
-            Debug.Log("-- No energy");
         }
+
         else
         {
             energy -= 1;
             EnergyDecreased?.Invoke();
         }
-        
     }
 
     public void SetEnergy()
     {
         energy = 1;
-        Debug.Log("resume energy:"+energy);
     }
 
     public void IncreaseStarScore()
     {
         starScore += 1;
-
         StarCollected?.Invoke();
     }
 
@@ -53,9 +50,9 @@ public class Player : MonoBehaviour
     {
         return starScore;
     }
+
     public int getEnergy()
     {
         return energy;
     }
-
 }

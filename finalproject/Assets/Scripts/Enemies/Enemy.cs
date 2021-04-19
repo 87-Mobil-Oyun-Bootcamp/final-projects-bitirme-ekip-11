@@ -5,7 +5,6 @@ using UnityEngine;
 public abstract class Enemy : MonoBehaviour
 {
     public EnemyBehavior behavior;
-
     void PerformBehavior() 
     {
         behavior.Behave();

@@ -12,16 +12,13 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     FinishStateController finishStateController;
 
-    //public System.Action SwipedToStart;
     public System.Action ClickedToStart;
     public System.Action ClickedToResume;
     public System.Action ClickedToReplay;
     public System.Action ClickedToQuit;
 
-
     private void Awake()
     {
-        //startStateController.OnSwipedToStart += StartTheGame;
         startStateController.OnClickedStartButton += StartTheGame;
         finishStateController.OnClickedResumeButton += ResumeTheGame;
         finishStateController.OnClickedReplayButton += ReplayTheGame;

@@ -7,22 +7,19 @@ public class FinishState : MonoBehaviour, IState
     [Space]
     [SerializeField]
     GameObject finishPanel;
-
     
     public void Enter()
     {
         Time.timeScale = 0;
+
         if(finishPanel != null)
         {
             finishPanel.SetActive(true);
         }
-        
-        Debug.Log("Finish State!");
     }
 
     public void Exit()
     {
         finishPanel.SetActive(false);
-        Debug.Log("Finish State exited!");
     }
 }

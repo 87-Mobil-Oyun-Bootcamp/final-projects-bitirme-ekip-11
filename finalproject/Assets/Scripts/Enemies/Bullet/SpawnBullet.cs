@@ -6,11 +6,10 @@ public class SpawnBullet : MonoBehaviour
 {
     [SerializeField]
     private Transform firePoint;
-
     [SerializeField]
     private Rigidbody prefab;
-    private Rigidbody bullet;
 
+    private Rigidbody bullet;
     private float force = 500f;
 
     void Start()
@@ -24,5 +23,4 @@ public class SpawnBullet : MonoBehaviour
         bullet.AddForce(firePoint.forward * force);
         bullet.velocity = transform.TransformDirection(0, 0, 40);
     }
-
 }

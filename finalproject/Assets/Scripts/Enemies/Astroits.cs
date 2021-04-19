@@ -5,17 +5,17 @@ using UnityEngine;
 public class Astroits : Enemy
 {
 
-    public Transform boomObj;
-
     [SerializeField]
     GameObject enemyObject;
+
+    public Transform boomObj;
 
     Player player;
     GameObject playerObj;
 
     void Awake()
     {
-        behavior = new StableBehavior(enemyObject);
+        behavior = new RotatingBehavior(enemyObject);
         playerObj = GameObject.Find("Player");
         player = playerObj.GetComponent<Player>();
     }
@@ -29,7 +29,6 @@ public class Astroits : Enemy
     {
         player.SetDamage();
     }
-
     
     private void OnCollisionEnter(Collision collision)
     {
@@ -37,10 +36,7 @@ public class Astroits : Enemy
         if (collision.gameObject.name == "PlayerBody")
         {
             Instantiate(boomObj, transform.position, boomObj.rotation);
-            Debug.Log("COLLISION");
             StartCoroutine("WaitForParticle");
-            //Damage();
-            Debug.Log("your energy: " + player.getEnergy());
         }
     }
 

@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    public Transform boomObj;
-
     Player player;
     GameObject playerObj;
+
+    public Transform boomObj;
 
     void Awake()
     {
@@ -27,11 +27,7 @@ public class Bullet : MonoBehaviour
         {
             Instantiate(boomObj, transform.position, boomObj.rotation);
             Destroy(gameObject);
-            Debug.Log("BULLET !");
             Damage();
-            Debug.Log("your energy: " + player.getEnergy());
         }
-
     }
-   
 }

@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Move : MonoBehaviour
 {
-
     private float startX;
     private float lastX;
     private float startY;
@@ -32,6 +31,7 @@ public class Move : MonoBehaviour
                 startY = Input.mousePosition.y;
 
             }
+
             else if (Input.GetMouseButton(0))
             {
                 lastX = Input.mousePosition.x;
@@ -52,13 +52,10 @@ public class Move : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-
         if (other.transform.gameObject.CompareTag("SpawnTrigger"))
         {
             spawnManager.SpawnTriggerEntered();
             Debug.Log("platform spawned!");
         }
-
-
     }
 }

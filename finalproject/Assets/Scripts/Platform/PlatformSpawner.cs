@@ -6,6 +6,7 @@ public class PlatformSpawner : MonoBehaviour
 {
     public List<GameObject> platforms;
     private float offset = 40f;
+
     void Start()
     {
         if(platforms != null && platforms.Count>0)

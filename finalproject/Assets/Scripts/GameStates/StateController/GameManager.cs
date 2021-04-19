@@ -39,20 +39,16 @@ public class GameManager : MonoBehaviour
         if (PlayerPrefs.GetInt("isReplayed") == 0)
         {
             startState.Enter();
-            Debug.Log("NEW GAME!" );
         }
         else
         {
             Time.timeScale = 1;
         }
-        
-
     }
 
     void StartTheGame()
     {
         startState.Exit();
-        
     }
 
     void PauseTheGame()
@@ -64,19 +60,19 @@ public class GameManager : MonoBehaviour
     {
         showTotalScore?.Invoke();
     }
+
     void ResumeTheGame()
     {
         // TODO: play the ad
         player.SetEnergy();
-        Debug.Log("your energy: " + player.getEnergy());
         Time.timeScale = 1;
         finishState.Exit();
     }
+
      void ReplayTheGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         Time.timeScale = 1;
-        Debug.Log("CLICKED REPLY!");
         PlayerPrefs.SetInt("isReplayed", 1);
     }
 
@@ -85,7 +81,4 @@ public class GameManager : MonoBehaviour
         Application.Quit();
         PlayerPrefs.SetInt("isReplayed", 0);
     }
-    
-
-
 }

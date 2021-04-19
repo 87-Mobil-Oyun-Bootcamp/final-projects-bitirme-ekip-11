@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class StartStateController : MonoBehaviour
 {
-
     [Space]
     [SerializeField]
     Button startButton;
@@ -21,5 +20,4 @@ public class StartStateController : MonoBehaviour
     {
         OnClickedStartButton?.Invoke();
     }
-
 }

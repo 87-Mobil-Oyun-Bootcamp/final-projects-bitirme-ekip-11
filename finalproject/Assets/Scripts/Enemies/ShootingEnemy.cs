@@ -26,7 +26,6 @@ public class ShootingEnemy : Enemy
     public override void Damage()
     {
         player.SetDamage();
-        Debug.Log("I got the damage");
     }
 
     private void OnTriggerEnter(Collider other)
@@ -35,7 +34,6 @@ public class ShootingEnemy : Enemy
         if (comp)
         {
             Damage();
-            //Object.Destroy(enemyObject);
         }
       
     }
